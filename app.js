@@ -37,7 +37,10 @@ app.post("/add-ev",async(req,res)=>{
     await charge.create(req.body)
     res.json({"status":"success"})
 })
-
+app.post("/view-ev",async(req,res)=>{
+    const charges=await charge.find()
+    res.json(charges)
+})
 
 
 app.listen(3000,()=>{
